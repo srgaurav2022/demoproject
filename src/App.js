@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header";
+import Timezone from "./components/Timezone";
+import PrevPage from "./components/PrevPage";
+import NextPage from "./components/NextPage";
+import CurrPage from "./components/CurrPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Timezone />
+      {/* <CurrPage /> */}
+      <Routes>
+        <Route path="/" element={<CurrPage />} />
+        <Route path="/PrevPage" element={<PrevPage />} />
+        <Route path="/NextPage" element={<NextPage />} />
+      </Routes>
+    </Router>
   );
 }
 
